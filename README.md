@@ -91,8 +91,4 @@ Our `predict_compatibility` function evaluates pairs using a three-step process:
 3. **Random Forest Regression:** These complex feature deltas are fed into the trained Joblib model, which returns an initial score based on thousands of historically weighted scenarios.
 4. **Weighted Interpretability:** The system parses the model's `feature_importances_` to explain exactly **why** the score is high or low, dynamically generating green and red flags for the end user.
 
----
 
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
