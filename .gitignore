@@ -1,0 +1,24 @@
+# Environments
+.venv/
+venv/
+env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database
+instance/
+*.sqlite
+*.sqlite3
+*.db
+
+# Machine Learning models & data
+*.pkl
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store

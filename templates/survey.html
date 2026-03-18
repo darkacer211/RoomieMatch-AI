@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card shadow border-0 mb-5">
+            <div class="card-header bg-dark text-white text-center py-4">
+                <h3 class="mb-0 fw-bold">Behavioral Questionnaire</h3>
+                <p class="mb-0 text-white-50 mt-1">Let's find your perfect roommate match</p>
+            </div>
+            <div class="card-body p-4 p-md-5 bg-light">
+                <form method="POST">
+                    
+                    <div class="mb-5 bg-white p-4 rounded shadow-sm border-start border-4 border-primary">
+                        <h4 class="mb-4 text-primary">1. Basic Details & Financials</h4>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Full Name</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Monthly Budget for Rent ($)</label>
+                                <input type="number" class="form-control" name="budget" min="100" max="10000" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">How punctual are you with bills?</label>
+                                <select class="form-select" name="bill_punctuality" required>
+                                    <option value="5">5 - Always early or precisely on time</option>
+                                    <option value="4">4 - Mostly on time</option>
+                                    <option value="3">3 - Occasional slight delays</option>
+                                    <option value="2">2 - I frequently need reminders</option>
+                                    <option value="1">1 - Very inconsistent</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5 bg-white p-4 rounded shadow-sm border-start border-4 border-success">
+                        <h4 class="mb-4 text-success">2. Lifestyle & Habits</h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Do you leave dishes in the sink overnight? (Cleanliness)</label>
+                            <select class="form-select" name="cleanliness" required>
+                                <option value="1">1 - Yes, often. I clean when I have time.</option>
+                                <option value="2">2 - Sometimes, if I'm tired.</option>
+                                <option value="3">3 - Almost never, I try to keep it decent.</option>
+                                <option value="4">4 - Never. I clean soon after eating.</option>
+                                <option value="5">5 - I'm a perfectionist; everything must be spotless.</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">If your roommate is playing music while you study/sleep, you...</label>
+                            <select class="form-select" name="noise_tolerance" required>
+                                <option value="1">1 - Get very annoyed immediately (Low Tolerance)</option>
+                                <option value="5">5 - Will just put on headphones (Medium)</option>
+                                <option value="10">10 - Don't care, I can sleep through a concert (High)</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">How often do you host people?</label>
+                            <select class="form-select" name="social_level" required>
+                                <option value="1">1 - Rarely or never</option>
+                                <option value="5">5 - Once a week</option>
+                                <option value="10">10 - Every day is a party!</option>
+                            </select>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">How many guests do you typically invite? (1-5)</label>
+                                <input type="number" class="form-control" name="guest_freq" min="1" max="5" value="1" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">How often do family/parents visit? (0-4/mo)</label>
+                                <input type="number" class="form-control" name="home_visit_freq" min="0" max="4" value="0" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5 bg-white p-4 rounded shadow-sm border-start border-4 border-danger">
+                        <h4 class="mb-4 text-danger">3. Hard Constraints (Dealbreakers)</h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Do you smoke?</label>
+                                <select class="form-select" name="smoking" required>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Do you drink?</label>
+                                <select class="form-select" name="drinking" required>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Are you okay sharing utensils?</label>
+                                <select class="form-select" name="utensil_sharing" required>
+                                    <option value="0">No (Strict separation)</option>
+                                    <option value="1">Yes (We can share)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Do you have overnight guests?</label>
+                                <select class="form-select" name="overnight_guests" required>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Are you pet friendly?</label>
+                            <select class="form-select" name="pet_friendly" required>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-5 bg-white p-4 rounded shadow-sm border-start border-4 border-info">
+                        <h4 class="mb-4 text-info">4. Schedule & Routine</h4>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-bold">Work Shift</label>
+                                <select class="form-select" name="work_shift" required>
+                                    <option value="0">Day Shift</option>
+                                    <option value="1">Night Shift</option>
+                                    <option value="2">Flexible / Odd Hours</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-bold">Days WFH per week</label>
+                                <input type="number" class="form-control" name="wfh_days" min="0" max="7" value="0" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-bold">Bathroom Prime Time</label>
+                                <select class="form-select" name="bathroom_prime" required>
+                                    <option value="0">Morning Shower</option>
+                                    <option value="1">Evening/Night Shower</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5 bg-white p-4 rounded shadow-sm border-start border-4 border-warning">
+                        <h4 class="mb-4 text-warning">5. Indian Cultural Context</h4>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Food Preferences</label>
+                            <select class="form-select" name="food_pref" required>
+                                <option value="0">Strictly Vegetarian</option>
+                                <option value="1">Non-Vegetarian (Eats meat at home)</option>
+                                <option value="2">Eggetarian</option>
+                            </select>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Maid Dependency (1-5)</label>
+                                <select class="form-select" name="maid_dependency" required>
+                                    <option value="5">5 - Can't survive without one</option>
+                                    <option value="3">3 - Important but manage occasionally</option>
+                                    <option value="1">1 - Prefer doing own chores</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">AC Usage (1-5)</label>
+                                <select class="form-select" name="ac_usage" required>
+                                    <option value="5">5 - Left on 24/7 (High Bills)</option>
+                                    <option value="3">3 - Moderate (Only to sleep)</option>
+                                    <option value="1">1 - Rarely (Prefer fan/cooler)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg shadow">Find My Matches</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
